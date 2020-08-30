@@ -13,19 +13,20 @@
             }
         }
     </script>
-    <script>
-        function inicia(){
-            document.getElementById("btnAdd").addEventListener("click", function(){
-                var nome=document.getElementById("Nome").value;
-                var mensagem= document.getElementById("Mensagem").value;
-                var p=document.createElement("p");
-                var msg = document.createTextNode(nome.value + ":" + mensagem.value);
-                li.textContent= msg.value;
-                document.body.appendChild(p);
-            });
-        }
-        window.addEventListener("load", inicia);
-    </script>
+        <script>
+
+            function inicia(){
+                document.getElementById("btnAdd").addEventListener("click", function(){
+                    var lista = document.getElementById("listaElementos");
+                    var nome = document.getElementById("nome");
+                    var mensagem = document.getElementById("mensagem");
+                    var p = document.createElement("p");
+                    p=document.createTextNode(nome.value + " : " + mensagem.value);
+                    lista.appendChild(p)
+                });
+            }
+            window.addEventListener("load", inicia);
+        </script>
 </head>
 <body>
 
@@ -33,10 +34,11 @@
     <button onclick="FuncaoParaExecutar('branco')" class="btn btn-branco" >branco</button>
     <button onclick="FuncaoParaExecutar('verde')" class="btn btn-verde" >verde</button>
     <h1>Deixe seu recado!</h1>
-    Nome <input type="text" id="Nome" placeholder="Digite seu nome aqui!"><br>
-    Mensagem <input type="text" id="Mensagem" placeholder="Digite sua Mensagem aqui!"><br>
-    <button id = "btnAdd">Enviar</button>
+    Nome <input type="text" id="nome"><br>
+    Mensagem <input type="text" id="mensagem"><br>
+    <button id="btnAdd">enviar</button><br>
 
+    <p id="listaElementos"></p>
     <footer>
         <button onclick="acionaAlerta()"> Créditos </button>
         <script>
