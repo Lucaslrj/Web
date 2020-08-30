@@ -1,0 +1,41 @@
+body{
+    width: 50%; 
+    margin: auto;
+    font-family: sans-serif;
+    line-height: 1.5;
+
+}
+
+.btn{
+    font-family: Arial;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.btn-vermelho{
+    color: white;
+    background: red;
+}
+
+.btn-branco{
+    background: white;
+}
+
+.btn-verde{
+    color: white;
+    background: green;
+}
+
+.btn-azul{
+    color: white;
+    background: blue;
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}

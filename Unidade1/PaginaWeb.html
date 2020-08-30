@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Mural</title>
+    <link rel="stylesheet" href="Estilos.css">
+    <meta charset="utf-8"/>
+    <script>
+        function FuncaoParaExecutar(Cor){
+            switch(Cor){
+                case 'vermelho' : document.bgColor = 'red'; break;
+                case 'branco' : document.bgColor = 'white'; break;
+                case 'verde' : document.bgColor = 'green'; break;
+            }
+        }
+    </script>
+    <script>
+        function inicia(){
+            document.getElementById("btnAdd").addEventListener("click", function(){
+                var nome=document.getElementById("Nome").value;
+                var mensagem= document.getElementById("Mensagem").value;
+                var p=document.createElement("p");
+                var msg = document.createTextNode(nome.value + ":" + mensagem.value);
+                li.textContent= msg.value;
+                document.body.appendChild(p);
+            });
+        }
+        window.addEventListener("load", inicia);
+    </script>
+</head>
+<body>
+
+    <button onclick="FuncaoParaExecutar('vermelho')" class="btn btn-vermelho" >vermelho</button>
+    <button onclick="FuncaoParaExecutar('branco')" class="btn btn-branco" >branco</button>
+    <button onclick="FuncaoParaExecutar('verde')" class="btn btn-verde" >verde</button>
+    <h1>Deixe seu recado!</h1>
+    Nome <input type="text" id="Nome" placeholder="Digite seu nome aqui!"><br>
+    Mensagem <input type="text" id="Mensagem" placeholder="Digite sua Mensagem aqui!"><br>
+    <button id = "btnAdd">Enviar</button>
+
+    <footer>
+        <button onclick="acionaAlerta()"> Créditos </button>
+        <script>
+            function acionaAlerta(){
+                alert("Desenvolvimento de Software para Web: João Victor dos Santos Barros e Lucas Rafael Alves Olveira")
+            }
+       </script>
+    </footer>
+</body>
+</html>
