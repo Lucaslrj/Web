@@ -4,6 +4,7 @@
     <title>Mural</title>
     <link rel="stylesheet" href="Estilos.css">
     <meta charset="utf-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function FuncaoParaExecutar(Cor){
             switch(Cor){
@@ -13,34 +14,37 @@
             }
         }
     </script>
-        <script>
-
-            function inicia(){
-                document.getElementById("btnAdd").addEventListener("click", function(){
-                    var lista = document.getElementById("listaElementos");
-                    var nome = document.getElementById("nome");
-                    var mensagem = document.getElementById("mensagem");
-                    var p = document.createElement("p");
-                    p=document.createTextNode(nome.value + " : " + mensagem.value);
-                    lista.appendChild(p)
-                });
-            }
-            window.addEventListener("load", inicia);
-        </script>
 </head>
 <body>
+    <div class="barrafixa">
+        <h3>COR DE FUNDO!</h3>
+        <button onclick="FuncaoParaExecutar('vermelho')" class="btn btn-vermelho" >vermelho</button>
+        <button onclick="FuncaoParaExecutar('branco')" class="btn btn-branco" >branco</button>
+        <button onclick="FuncaoParaExecutar('verde')" class="btn btn-verde" >verde</button>
+    </div>
 
-    <button onclick="FuncaoParaExecutar('vermelho')" class="btn btn-vermelho" >vermelho</button>
-    <button onclick="FuncaoParaExecutar('branco')" class="btn btn-branco" >branco</button>
-    <button onclick="FuncaoParaExecutar('verde')" class="btn btn-verde" >verde</button>
     <h1>Deixe seu recado!</h1>
     Nome <input type="text" id="nome"><br>
     Mensagem <input type="text" id="mensagem"><br>
-    <button id="btnAdd">enviar</button><br>
+    <button id="btnAdd" class="btn-azul">Enviar</button><br>
 
-    <p id="listaElementos"></p>
+    <script>
+        window.cont = 1;
+        var nome = document.getElementById("nome");
+        var mensagem = document.getElementById("mensagem");
+        $("#btnAdd").click(function(){
+            $("#listaElementos").append('<div id="campo' + cont +'">'+nome.value +" : " + mensagem.value +'<button id="' + cont + '" class="btn-azul btn-apagar">Excluir</button><br></div>')
+            cont++;
+        });
+        $('div').on('click', '.btn-apagar', function () {
+            var button_id = $(this).attr('id');
+            $('#campo' + button_id + '').remove();
+        });
+    </script>
+
+    <form id="listaElementos"></form>
     <footer>
-        <button onclick="acionaAlerta()"> Créditos </button>
+        <button onclick="acionaAlerta()" class="btn-azul"> Créditos </button>
         <script>
             function acionaAlerta(){
                 alert("Desenvolvimento de Software para Web: João Victor dos Santos Barros e Lucas Rafael Alves Olveira")
